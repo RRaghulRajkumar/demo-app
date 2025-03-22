@@ -4,11 +4,10 @@ import datetime
 import pandas as pd
 import plotly.express as px
 from twilio.rest import Client
-import os
 
-# Database connection
+# Database connection using Streamlit Secrets
 def connect_db():
-    return psycopg2.connect(os.getenv("DATABASE_URL"))
+    return psycopg2.connect(st.secrets["database"]["DATABASE_URL"])
 
 # Initialize database
 def init_db():
