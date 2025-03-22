@@ -4,16 +4,11 @@ import datetime
 import pandas as pd
 import plotly.express as px
 from twilio.rest import Client
+import os
 
 # Database connection
 def connect_db():
-    return psycopg2.connect(
-        host="localhost",
-        database="subscription_db",
-        user="postgres",
-        password="password18",
-        port="5432"
-    )
+    return psycopg2.connect(os.getenv("DATABASE_URL"))
 
 # Initialize database
 def init_db():
